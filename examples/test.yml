@@ -1,0 +1,40 @@
+
+title: Test Quiz
+
+questions:
+
+# need to quote strings that have a colon :
+- prompt: "The string 'foo' in capital letters is:"
+  correct: FOO
+  distractors:
+  - BAR
+  - BAZ
+  - Foo
+  hint: Try changing all of the letters to capital letters.
+
+- prompt: The answer to this question is False.
+  correct: False
+# No need for distractors when correct answer is boolean
+  hint: Think about something that is not true.
+
+- prompt: The answer to this question is True.
+  correct: True
+# No need for distractors when correct answer is boolean
+# This question has no hint (on purpose)
+#  hint: Think about something that is not false.
+
+- prompt: "Everything in Python is:"
+  correct: a Python object (<tt>PyObject</tt>)
+  distractors:
+  - real
+  - statically typed
+  - compressed
+
+- prompt: "In general, Python is:"
+  correct: all of these options
+  distractors:
+  - fast for rapid prototyping
+  - slower than native code
+  - best used to glue together fast native code
+
+# vim: tabstop=2:shiftwidth=2

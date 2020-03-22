@@ -1,0 +1,8 @@
+click==6.7
+Flask==0.12
+itsdangerous==0.24
+Jinja2==2.9.5
+MarkupSafe==0.23
+Werkzeug==0.11.15
+pyyaml==5.1.1
+Flask-Mail==0.9.1

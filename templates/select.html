@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p>
+<h4>Select from {{nquiz}} Quizzes:</h4>
+
+<form id='answerform_python' method='post'  > <!-- action must match your next URL -->
+{% for quiz in quiz_list %}
+<div class='radio'>
+<label>
+<input type='radio' name='sel_quiz' id="q{{loop.index0}}" value="{{quiz}}" />
+{{quiz}}</label>
+</div>
+{% endfor %}
+</p>
+
+<p>
+<button type='submit' class="btn btn-primary" formaction="{{ url_for('answer') }}">Begin</button>
+</p>
+</form>
+
+{% endblock %}

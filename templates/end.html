@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}{{quiz_name}} Complete!{% endblock %}
+
+{% block content %}
+<p>Your Score: {{score}}%</p>
+<p>
+{% if quiz_pass %}
+<div class="alert alert-success">
+<i class="fas fa-trophy"></i>
+Congratulations, you passed the quiz!
+{% if submit_emails %}
+An e-mail has been sent to
+{% for addr in submit_emails %}
+<a href="mailto:{{addr}}">{{addr}}</a>
+{{ ", " if not loop.last }}
+{% endfor %}
+so that you may receive credit.
+{% endif %}
+</p>
+
+<p>You may reference submission number: {{submission_id}}</p>
+</div>
+
+{% else %}
+<div class="alert alert-danger">
+<i class="fas fa-sad-tear"></i>
+Sorry, please try again. You need a score of at least {{passing_score}}% to pass.
+</div>
+{% endif %}
+</p>
+
+{% if wrong_prompts %}
+<h4>Wrong answers:</h4>
+{% for wrong_prompt in wrong_prompts %}
+<p class="mb-5">
+<div><a href="{{ url_for('jump_to', target=wrong_i[loop.index0]) }}">Question #{{wrong_i[loop.index0]}}</a>: {{wrong_prompt|safe}}</div>
+<div><i class="fas fa-times"></i> Wrong answer: {{wrong_answers[loop.index0]|safe}}</div>
+{% if wrong_hints[loop.index0] %}
+<div><i>Hint</i>: {{wrong_hints[loop.index0]|safe}}</div>
+</p>
+{% endif %}
+{% endfor %}
+{% endif %}
+
+<p></p>
+<form id='answerform_python' method='post'>
+<p>
+<button type='submit' class="btn btn-primary" formaction="/back">Back</button>
+<button type='submit' class="btn btn-danger" formaction="{{ url_for('reset_page') }}">Take Another Quiz</button>
+</p>
+</form>
+
+{% endblock %}

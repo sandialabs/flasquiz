@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block login_info %}{% endblock %}
+{% block content %}
+
+<form id='login' method='post'  > <!-- action must match your next URL -->
+<div class="form-group">
+<label>Please provide your e-mail address to receive credit:</label>
+<input type="email" class="form-control" name="email" placeholder="Email">
+</div>
+
+<p>
+<button type='submit' class="btn btn-primary" formaction="/">Login</button>
+</p>
+</form>
+
+{% endblock %}

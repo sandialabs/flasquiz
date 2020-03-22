@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}{{quiz_name}}, Question #{{num}} of {{ntot}}</h1>{% endblock %}
+{% block content %}
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+  <div class="alert alert-danger alert-dismissable" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span></button>
+    {{ message }}
+  </div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<h4>Question:</h4>
+<p>{{question|safe}}</p>
+
+<h4>Answer:</h4>
+<form id='answerform_python' method='post'>
+{% for opt in opt_list %}
+<div class='radio'>
+  <label>
+  <input type='radio' name='answer_python' id="o{{loop.index0}}" value="{{opt}}"
+  {% if old_answer is not none and old_answer == opt %}checked {% endif %}/>
+  {{opt|safe}}</label>
+</div>
+{% endfor %}
+<p></p>
+<p>
+{% if num > 1 %}
+<button type='submit' class="btn btn-primary" formaction="/back">Back</button>
+{% endif %}
+<button type='submit' class="btn btn-danger" formaction="/reset">Reset</button>
+{% if not complete or num < ntot %}
+<button type='submit' class="btn btn-primary" formaction="/python">Next</button>
+{% endif %}
+{% if complete %}
+<button type='submit' class="btn btn-primary" formaction="{{ url_for('jump_to', target=ntot+1) }}">Back to End</button>
+{% endif %}
+</p>
+</form>
+
+{% endblock %}

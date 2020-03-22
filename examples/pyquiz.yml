@@ -1,0 +1,65 @@
+# vim: tabstop=2:shiftwidth=2
+# This file is derived from https://github.com/dldhdz/miniquiz
+
+title: Python Quiz
+
+questions:
+
+- hint: 'func_name does not work for built-in functions'
+  correct: '<tt>theFunction.__name__</tt>'
+  prompt: 'Which of the following is the correct way to output the name of any function (including builtin functions) using Python?'
+  distractors: 
+  - '<tt>theFunction.__func_name__</tt>'
+  - '<tt>theFunction.func_name</tt>'
+  - '<tt>theFunction.name()</tt>'
+
+- hint: '<tt>a[start:end]</tt> slicing means items <tt>start</tt> through <tt>end-1</tt>'
+  correct: '<tt>thelist[3:]</tt>'
+  prompt: >
+    For the list <tt>thelist = [1, 2, 3, 4, 5]</tt>, how could the last two
+    elements of the list (4,5) be selected using slices?
+  distractors:
+  - '<tt>thelist[-2]</tt>'
+  - '<tt>thelist[3:4]</tt>'
+  - '<tt>thelist[3,4]</tt>'
+
+- hint: 'to simply amend your path, <tt>sys.path.append</tt> can be used'
+  correct: >
+    Put <tt>__init__.py</tt> file in the module path and import it using the
+    import statement
+  prompt: 'Which option will import a module which is not in <tt>PYTHONPATH</tt> or the current directory?'
+  distractors:
+  - '<tt>import <modulename></tt>'
+  - 'Add the path in program by <tt>sys.path.insert(<path>)</tt>'
+  - '<tt><modulename> import *</tt>'
+
+- correct: '<tt>installtools</tt>'
+  prompt: 'Which is not used to install Python packages?'
+  distractors:
+  - '<tt>easy_install</tt>'
+  - '<tt>setuptools</tt>'
+  - '<tt>distutils</tt>'
+  - '<tt>pip</tt>'
+
+- correct: "Do not bind to a specific port, or bind to port 0, e.g. <tt>sock.bind(('',0))</tt>"
+  prompt: 'Which is correct about getting a free port number?'
+  distractors:
+  - 'use <tt>sock.getsockname()</tt> to get a free port number'
+  - 'We cannot get a free port number'
+  - "Directly use a desired port number in bind function, e.g. <tt>sock.bind(('',port_number))</tt>"
+
+- hint: '<tt>raw_input()</tt> does not exist in Python 3.x, it has been renamed to <tt>input()</tt>, and the old <tt>input()</tt> is gone'
+  correct: '<tt>sys.stdin</tt>'
+  prompt: 'Which user input method will act like a file-object on which read and readline function can be callled'
+  distractors:
+  - '<tt>input()</tt>'
+  - '<tt>sys.argv</tt>'
+  - '<tt>raw_input()</tt>'
+
+- correct: '<tt>__floordiv__()</tt>'
+  prompt: 'Which function overloads the <tt>//</tt> operator?'
+  distractors:
+  - '<tt>__truediv__()</tt>'
+  - '<tt>__radd__()</tt>'
+  - '<tt>__ceildiv__()</tt>'
+
